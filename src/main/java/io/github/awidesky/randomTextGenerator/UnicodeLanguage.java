@@ -14,7 +14,7 @@ public class UnicodeLanguage implements IntPredicate {
 	public static final UnicodeLanguage NUMERIC = new UnicodeLanguage(48, 57);
 	/** ASCII English alphabets(both lower case and upper case) */
 	public static final UnicodeLanguage ENGLISH = new UnicodeLanguage(new Range(65, 90), new Range(97, 122));
-	/** ASCII punctuation & symbols */
+	/** ASCII punctuation and symbols */
 	public static final UnicodeLanguage ASCII_PUNCTUATION_SYMBOL = new UnicodeLanguage(new Range(33, 47), new Range(58, 64), new Range(91, 96), new Range(123, 126));
 	/** Unicode Korean (한글 소리 마디/Hangul Syllables) */
 	public static final UnicodeLanguage KOREAN = new UnicodeLanguage(new Range(44032, 55203));

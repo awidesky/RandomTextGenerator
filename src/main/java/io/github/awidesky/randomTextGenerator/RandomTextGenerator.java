@@ -10,6 +10,7 @@ public class RandomTextGenerator {
 
 	private final UnicodeLanguage[] ranges;
 	
+	//TODO : create with given random generatorS
 	/**
 	 * Creates a random text generator that uses given languages.
 	 * */
