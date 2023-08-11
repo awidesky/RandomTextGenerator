@@ -8,13 +8,20 @@ import java.util.Random;
  * */
 public class RandomTextGenerator {
 
+	private final Random random;
 	private final UnicodeLanguage[] ranges;
 	
-	//TODO : create with given random generatorS
 	/**
-	 * Creates a random text generator that uses given languages.
+	 * Creates a random text generator that uses given languages and default {@code Random} object.
 	 * */
 	public RandomTextGenerator(UnicodeLanguage... launguages) {
+		this(new Random(), launguages);
+	}
+	/**
+	 * Creates a random text generator that uses given languages and {@code Random} object.
+	 * */
+	public RandomTextGenerator(Random random, UnicodeLanguage... launguages) {
+		this.random = random;
 		ranges = launguages;
 	}
 	
@@ -26,7 +33,7 @@ public class RandomTextGenerator {
 	 * */
 	public String randomString(int len) {
 		StringBuilder sb = new StringBuilder(len);
-		new Random().ints(0, 1114111).filter(i -> Arrays.stream(ranges).anyMatch(u -> u.test(i))).limit(len).mapToObj(Character::toChars).forEach(sb::append);
+		random.ints(0, 1114111).filter(i -> Arrays.stream(ranges).anyMatch(u -> u.test(i))).limit(len).mapToObj(Character::toChars).forEach(sb::append);
 		return sb.toString();
 	}
 	
@@ -38,8 +45,8 @@ public class RandomTextGenerator {
 	 * */
 	public String evenlyDistributedRandomString(int len) {
 		StringBuilder sb = new StringBuilder(len);
-		new Random().ints(len, 0, Integer.MAX_VALUE).map(i -> i % ranges.length).flatMap(i -> 
-			new Random().ints(0, 1114111).filter(j -> ranges[i].test(j)).limit(1)
+		random.ints(len, 0, Integer.MAX_VALUE).map(i -> i % ranges.length).flatMap(i -> 
+			random.ints(0, 1114111).filter(j -> ranges[i].test(j)).limit(1)
 		).mapToObj(Character::toChars).forEach(sb::append);
 		return sb.toString();
 	}
