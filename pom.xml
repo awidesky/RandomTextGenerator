@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.awidesky</groupId>
   <artifactId>RandomTextGenerator</artifactId>
-  <version>1.0.1</version>
+  <version>1.1.1-SNAPSHOT</version>
   <name>RandomTextGenerator</name>
   <description>Random text generator with given language</description>
   <url>https://github.com/awidesky/RandomTextGenerator</url>
